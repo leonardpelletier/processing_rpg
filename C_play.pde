@@ -60,6 +60,22 @@ void play() {
     k++;
   }
 
+  //draw minimap
+  int minimapX = 700;
+  int minimapY = 25;
+  int minimapRes = 5;
+  for (int u = 0; u < map.height; u++) {
+    for (int v = 0; v < map.width; v++) {
+      if (roomx == v && roomy == u) {
+        fill(green);
+      } else {
+        color c = map.get(v, u);
+        fill(c);
+      }
+      rect(minimapX + v*minimapRes, minimapY + u*minimapRes, minimapRes, minimapRes);
+    }
+  }
+
   //pausing
   if (enterkey) mode = PAUSE;
 }
